@@ -1,0 +1,15 @@
+extends ../layout/app.pug
+
+block css
+    link(rel="stylesheet", href="assets/css/login.css", type="text/css")
+
+block content
+    .container
+        .brand-logo
+        .brand-title TWITTER
+        .inputs
+            label EMAIL
+            input(type='email', placeholder='example@test.com')
+            label PASSWORD
+            input(type='password', placeholder='Min 6 charaters long')
+            button(type='submit') REGISTER
