@@ -1,0 +1,7 @@
+extends ./layout/app.pug
+block content
+    if success
+        div(style="color: green; width:100%; text-align: center;") #{success}
+    h1 HELLO #{user.email}
+    form(method='post', action='/logout')
+        button LOGOUT

@@ -20,10 +20,17 @@ app.use(session({
     saveUninitialized: false,
     secret: 'abc'
 }));
+
 app.use(function (req, res, next) {
-    res.locals.session = req.session;
+    res.locals.error = req?.session.error;
+    res.locals.success = req?.session.success;
+
+    delete req?.session.error;
+    delete req?.session.success;
+
     next();
 });
+
 
 // Init router
 router(app);

@@ -4,14 +4,17 @@ block css
     link(rel="stylesheet", href="assets/css/login.css", type="text/css")
 
 block content
-    h1 #{session.user}
-    .container
-        .brand-logo
-        .brand-title TWITTER
-        .inputs
-            label EMAIL
-            input(type='email', placeholder='example@test.com')
-            label PASSWORD
-            input(type='password', placeholder='Min 6 charaters long')
-            button(type='submit') LOGIN
-        a(href='https://twitter.com/prathkum') MADE BY PRATHAM
+    if success
+        div(style="color: green; width:100%; text-align: center;") #{success}
+    if error
+        div(style="color: red; width:100%; text-align: center;") #{error}
+    div
+        form.container(method="post", action="/login")
+            .brand-logo
+            .brand-title TWITTER
+            .inputs
+                label EMAIL
+                input(type='email', placeholder='example@test.com', name='email')
+                label PASSWORD
+                input(type='password', placeholder='Min 6 charaters long', name='password')
+                button(type='submit') LOGIN

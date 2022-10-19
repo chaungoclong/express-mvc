@@ -4,12 +4,14 @@ block css
     link(rel="stylesheet", href="assets/css/login.css", type="text/css")
 
 block content
-    .container
+    form.container(method='post', action="/register")
         .brand-logo
         .brand-title TWITTER
         .inputs
+            if error
+                div(style="color: red; width:100%; text-align: center;") #{error}
             label EMAIL
-            input(type='email', placeholder='example@test.com')
+            input(type='email', placeholder='example@test.com', name='email')
             label PASSWORD
-            input(type='password', placeholder='Min 6 charaters long')
+            input(type='password', placeholder='Min 6 charaters long', name='password')
             button(type='submit') REGISTER
